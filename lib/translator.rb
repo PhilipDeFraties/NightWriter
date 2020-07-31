@@ -1,11 +1,14 @@
 class Translator
-
-  def initialize(eng_text_file_path)
-    @eng_text = eng_text_file_path
+  attr_reader :input_text
+  def initialize
+    @input_text = ""
   end
 
-  def read_from_english_file
-    p File.read(@eng_text) 
+  def read(filepath)
+    @input_text << File.read(filepath)
   end
 
+  def write(filename)
+    File.open(filename, 'w').write(@input_text)
+  end
 end

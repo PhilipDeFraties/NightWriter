@@ -1,5 +1,5 @@
 
-
+translator = Translator.new
 
 referenced_file = File.open(ARGV[0]).sum do |line|
   line.chomp.length

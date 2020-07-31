@@ -5,16 +5,19 @@ require './lib/translator.rb'
 class TranslatorTest < MiniTest::Test
 
   def test_it_exists
-    translator = Translator.new('message.txt')
+    translator = Translator.new
 
     assert_instance_of Translator, translator
   end
 
 
-  def test_it_can_print_from_eng_file
-    translator = Translator.new('message.txt')
+  def test_it_can_read_input_text
+    translator = Translator.new
 
-    assert_equal "hello world\n", translator.read_from_english_file
+    translator.read('message.txt')
+
+    assert_equal "hello world\n", translator.input_text
   end
+
 
 end
