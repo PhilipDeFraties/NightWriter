@@ -1,8 +1,16 @@
 
-sum = File.open(ARGV[0]).sum do |line|
-  line.gsub(/\s+/, '').length
+
+
+referenced_file = File.open(ARGV[0]).sum do |line|
+  line.chomp.length
 end
 
-p "Created '#{ARGV[1]}' containing #{sum} characters"
+created_file = File.open(ARGV[1], 'w')
 
-puts ARGV.inspect
+example_text = "Example text"
+
+created_file.write(example_text)
+
+p "Created '#{ARGV[1]}' containing #{referenced_file} characters"
+
+# puts ARGV.inspect
