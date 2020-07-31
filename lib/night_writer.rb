@@ -1,4 +1,8 @@
 
+sum = File.open(ARGV[0]).sum do |line|
+  line.gsub(/\s+/, '').length
+end
 
+p "Created '#{ARGV[1]}' containing #{sum} characters"
 
-p "Created 'braille.txt' containing 256 characters"
+puts ARGV.inspect
