@@ -8,5 +8,7 @@ class Translator
     @input_text << File.read(filepath)
   end
 
-
+  def write(filename)
+    File.open(filename, 'w').write(@input_text)
+  end
 end

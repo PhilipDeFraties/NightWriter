@@ -19,5 +19,14 @@ class TranslatorTest < MiniTest::Test
     assert_equal "hello world\n", translator.input_text
   end
 
+  def test_it_can_write
+    translator = Translator.new
+
+    translator.read('message.txt')
+    translator.write('translated.txt')
+
+    assert_equal "hello world\n", translator.read('translated.txt')
+  end
+
 
 end
