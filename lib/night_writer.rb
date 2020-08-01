@@ -1,15 +1,19 @@
 require 'pry'
 require './lib/translator.rb'
+require './lib/file_reader.rb'
 
 class NightWriter
+  attr_reader :reader,
+              :translator
+  def initialize
+    @reader = FileReader.new
+    @translator = Translator.new
+  end
 
-referenced_file = File.open(ARGV[0])
-created_file = File.open(ARGV[1], 'w')
 
-#
-#
-#
-#
+
+  # @created_file = File.open(ARGV[1], 'w')
+
 # translator = Translator.new
 
 # translator.read(referenced_file)
