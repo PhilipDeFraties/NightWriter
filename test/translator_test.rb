@@ -23,10 +23,10 @@ class TranslatorTest < MiniTest::Test
     assert_equal ["..", "..", ".."],translator.alphabet.lowercase[" "]
   end
 
-  def test_it_has_no_input_or_output_text_by_default
+  def test_it_has_no_output_text_by_default
     translator = Translator.new
 
-    assert_equal "", translator.input_text
+
     assert_equal "", translator.formatted_braille
   end
 
@@ -49,6 +49,24 @@ class TranslatorTest < MiniTest::Test
     translator.format_to_braille
 
     assert_equal "0.0.00\n..0...\n......", translator.formatted_braille
+  end
+
+  def test_it_can_limit_text_width
+    translator = Translator.new
+    text1 = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text "
+    text2 = "text text"
+    text3 = "text text text text text text text text text text text text text text text text text text text text text text text text text"
+    text4 = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
+
+
+    assert_equal 80, translator.cut(text1)[0].length
+    assert_equal 80, translator.cut(text1)[1].length
+    assert_equal 9, translator.cut(text2)[0].length
+    assert_equal 80, translator.cut(text3)[0].length
+    assert_equal 44, translator.cut(text3)[1].length
+    assert_equal 80, translator.cut(text4)[0].length
+    assert_equal 80, translator.cut(text4)[1].length
+    assert_equal 39, translator.cut(text4)[2].length
   end
 
 
