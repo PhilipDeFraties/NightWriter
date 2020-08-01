@@ -34,14 +34,19 @@ class NightWriterTest < MiniTest::Test
     assert_equal "hello world\n", nightwriter.text
   end
 
-
-
+  def test_it_can_translate
+    nightwriter = NightWriter.new
+    ARGV[0] = 'message.txt'
+    nightwriter.load_input_text(ARGV[0])
+    assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...",
+     nightwriter.translate
+  end
   # def test_it_can_write_translated_braille_to_new_file
   #   nightwriter = NightWriter.new
   #   ARGV[0] = 'message.txt'
   #   ARGV[1] = 'translated.txt'
   #
-  #   nightwriter.write
+  #   nightwriter.write_to_new_file
   #
   #   assert_equal "", nightwriter.reader.read(ARGV[1])
   # end

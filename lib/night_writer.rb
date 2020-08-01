@@ -15,6 +15,11 @@ class NightWriter
     @text = @reader.read(file_input)
   end
 
+  def translate
+    @translator.translate_to_braille_arrays(@text)
+    @translator.format_to_braille
+  end
+
 end
 
 
