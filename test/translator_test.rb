@@ -23,6 +23,13 @@ class TranslatorTest < MiniTest::Test
     assert_equal ["..", "..", ".."],translator.alphabet.lowercase[" "]
   end
 
+  def test_it_has_no_input_or_output_text_by_default
+    translator = Translator.new
+
+    assert_equal "", translator.input_text
+    assert_equal "", translator.formatted_braille
+  end
+
   def test_it_can_translate_to_braille_arrays
     translator = Translator.new
     text = "test text"
