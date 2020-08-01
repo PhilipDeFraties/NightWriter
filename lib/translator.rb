@@ -4,34 +4,28 @@ class Translator
 
   attr_reader :input_text
   def initialize
-    @input_text = ""
     @alphabet = Alphabet.new
   end
 
-  def read(filepath)
-    @input_text << File.read(filepath)
-  end
-
-  def write(filename)
-    File.open(filename, 'w').write(@input_text)
-  end
-
-  def to_braille_arrays
-    braille_array = []
-    @input_text.each_char do |character|
+  def translate_to_braille_arrays(text)
+    @braille_arrays = []
+    text.each_char do |character|
       @alphabet.lowercase.each do |letter, braille|
         if letter == character
-          braille_array << braille
+          @braille_arrays << braille
         end
       end
     end
-    braille_array
+    @braille_arrays
   end
-end
 
 
+  def format_braille
+    @braille_array
+  end
   # def count(filename)
   #   File.open(filename).sum do |line|
   #     line.length
   #   end
   # end
+end
