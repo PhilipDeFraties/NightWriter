@@ -1,8 +1,7 @@
 class FileReader
 
-  def read
-    referenced_file = (ARGV[0])
-    File.read(ARGV[0])
+  def read(input)
+    File.read(input)
   end
 
 end
