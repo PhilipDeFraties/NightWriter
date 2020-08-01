@@ -25,8 +25,33 @@ class TranslatorTest < MiniTest::Test
     translator.read('message.txt')
     translator.write('translated.txt')
 
-    assert_equal "hello world\n", translator.read('translated.txt')
+    assert_equal "hello world\n", translator.read("translated.txt")
   end
 
+  # def test_it_can_count_characters
+  #   translator = Translator.new
+  #
+  #   translator.read('message.txt')
+  #   translator.write('translated.txt')
+  #
+  #   assert_equal 11, translator.count("translated.txt")
+  # end
+
+  def test_it_can_translate_to_braille
+    translator = Translator.new
+    translator.read('message.txt')
+
+    assert_equal [["0.", "00", ".."],
+     ["0.", ".0", ".."],
+      ["0.", "0.", "0."],
+       ["0.", "0.", "0."],
+        ["0.", ".0", "0."],
+         ["..", "..", ".."],
+          [".0", "00", ".0"],
+           ["0.", ".0", "0."],
+            ["0.", "00", "0."],
+             ["0.", "0.", "0."],
+              ["00", ".0", ".."]], translator.to_braille_arrays
+  end
 
 end
