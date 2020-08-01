@@ -17,5 +17,6 @@ class AlphabetTest < MiniTest::Test
     assert_equal ["0.", "..", ".."], alphabet.lowercase["a"]
     assert_equal ["00", "..", "0."], alphabet.lowercase["m"]
     assert_equal [".0", "0.", "0."], alphabet.lowercase["s"]
+    assert_equal 27, alphabet.lowercase.count
   end
 end
