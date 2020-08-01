@@ -25,8 +25,11 @@ class NightWriter
     File.open(file_output, "w") { |file| file.write(@output_text) }
   end
 
+  def confirm(file_input)
+     new_file_count = File.open(file_input).sum do |line|
+       line.chomp.length
+     end
+    p "Created '#{ARGV[1]}' containing #{new_file_count} characters"
+  end
+
 end
-
-# p "Created '#{ARGV[1]}' containing #{} characters"
-
-# puts ARGV.inspect

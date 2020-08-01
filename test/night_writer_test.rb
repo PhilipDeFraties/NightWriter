@@ -54,5 +54,17 @@ class NightWriterTest < MiniTest::Test
      nightwriter.reader.read(ARGV[1])
   end
 
+  def test_it_can_confirm_translated_characters
+    nightwriter = NightWriter.new
+    ARGV[0] = 'message.txt'
+    ARGV[1] = 'translated.txt'
+    nightwriter.load_input_text(ARGV[0])
+    nightwriter.translate
+    nightwriter.write(ARGV[1])
+
+    assert_equal "Created 'translated.txt' containing 11 characters",
+     nightwriter.confirm(ARGV[0])
+  end
+
 
 end
