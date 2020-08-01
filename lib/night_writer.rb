@@ -12,13 +12,6 @@ class NightWriter
 
 
 
-  # @created_file = File.open(ARGV[1], 'w')
-
-# translator = Translator.new
-
-# translator.read(referenced_file)
-#
-# translator.write(created_file)
 
 end
 
