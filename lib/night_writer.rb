@@ -1,16 +1,24 @@
+require 'pry'
+require './lib/translator.rb'
 
-translator = Translator.new
+class NightWriter
 
-referenced_file = File.open(ARGV[0]).sum do |line|
-  line.chomp.length
-end
-
+referenced_file = File.open(ARGV[0])
 created_file = File.open(ARGV[1], 'w')
 
-example_text = "Example text"
+#
+#
+#
+#
+# translator = Translator.new
 
-created_file.write(example_text)
+# translator.read(referenced_file)
+#
+# translator.write(created_file)
 
-p "Created '#{ARGV[1]}' containing #{referenced_file} characters"
+end
+
+
+# p "Created '#{ARGV[1]}' containing #{} characters"
 
 # puts ARGV.inspect
