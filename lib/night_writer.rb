@@ -5,7 +5,8 @@ require './lib/file_reader.rb'
 class NightWriter
   attr_reader :reader,
               :translator,
-              :text
+              :text,
+              :output_text
   def initialize
     @reader = FileReader.new
     @translator = Translator.new
@@ -17,11 +18,14 @@ class NightWriter
 
   def translate
     @translator.translate_to_braille_arrays(@text)
-    @translator.format_to_braille
+    @output_text = @translator.format_to_braille
+  end
+
+  def write(file_output)
+    File.open(file_output, "w") { |file| file.write(@output_text) }
   end
 
 end
-
 
 # p "Created '#{ARGV[1]}' containing #{} characters"
 
