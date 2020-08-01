@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/night_writer.rb'
 require './lib/translator.rb'
 require './lib/file_reader.rb'
+require 'pry'
 
 class NightWriterTest < MiniTest::Test
 
@@ -29,7 +30,21 @@ class NightWriterTest < MiniTest::Test
   def test_it_can_read_from_command_line_input
     nightwriter = NightWriter.new
     ARGV[0] = 'message.txt'
-    assert_equal "hello world\n", nightwriter.reader.read(ARGV[0])
+    nightwriter.load_input_text(ARGV[0])
+    assert_equal "hello world\n", nightwriter.text
   end
+
+
+
+  # def test_it_can_write_translated_braille_to_new_file
+  #   nightwriter = NightWriter.new
+  #   ARGV[0] = 'message.txt'
+  #   ARGV[1] = 'translated.txt'
+  #
+  #   nightwriter.write
+  #
+  #   assert_equal "", nightwriter.reader.read(ARGV[1])
+  # end
+
 
 end

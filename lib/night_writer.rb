@@ -4,14 +4,16 @@ require './lib/file_reader.rb'
 
 class NightWriter
   attr_reader :reader,
-              :translator
+              :translator,
+              :text
   def initialize
     @reader = FileReader.new
     @translator = Translator.new
   end
 
-
-
+  def load_input_text(file_input)
+    @text = @reader.read(file_input)
+  end
 
 end
 
