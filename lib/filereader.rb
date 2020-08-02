@@ -1,7 +1,10 @@
-class FileReader
+module FileReader
 
-  def read(input)
-    File.read(input)
+  def load_input_text(file_input)
+    @text = File.read(file_input)
   end
+
+
+
 
 end
