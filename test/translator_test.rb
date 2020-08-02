@@ -48,26 +48,6 @@ class TranslatorTest < MiniTest::Test
     translator.translate_to_braille_arrays(text)
     translator.format_to_braille
 
-    assert_equal "0.0.00\n..0...\n......", translator.formatted_braille
+    assert_equal "0.0.00\n..0...\n......\n", translator.formatted_braille
   end
-
-  def test_it_can_limit_text_width
-    translator = Translator.new
-    text1 = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text "
-    text2 = "text text"
-    text3 = "text text text text text text text text text text text text text text text text text text text text text text text text text"
-    text4 = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text"
-
-
-    assert_equal 80, translator.cut(text1)[0].length
-    assert_equal 80, translator.cut(text1)[1].length
-    assert_equal 9, translator.cut(text2)[0].length
-    assert_equal 80, translator.cut(text3)[0].length
-    assert_equal 44, translator.cut(text3)[1].length
-    assert_equal 80, translator.cut(text4)[0].length
-    assert_equal 80, translator.cut(text4)[1].length
-    assert_equal 39, translator.cut(text4)[2].length
-  end
-
-
 end

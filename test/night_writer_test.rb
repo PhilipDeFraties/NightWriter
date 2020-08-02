@@ -83,4 +83,19 @@ class NightWriterTest < MiniTest::Test
     assert_equal "Created 'translated2.txt' containing 11 characters",
      nightwriter.confirm(ARGV[0])
   end
+
+  def test_each_method
+    nightwriter = NightWriter.new
+    ARGV[0] = 'lyrics.txt'
+    ARGV[1] = 'translated3.txt'
+
+    nightwriter.load_input_text(ARGV[0])
+    nightwriter.cut(File.read(ARGV[0]))
+    nightwriter.translate
+    nightwriter.write(ARGV[1])
+
+    assert_equal "Created 'translated3.txt' containing 174   characters",
+     nightwriter.confirm(ARGV[0])
+   end
+
 end
