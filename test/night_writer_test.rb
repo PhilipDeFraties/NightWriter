@@ -75,10 +75,6 @@ class NightWriterTest < MiniTest::Test
     nightwriter = NightWriter.new
     ARGV[0] = 'message.txt'
     ARGV[1] = 'translated2.txt'
-    nightwriter.load_input_text(ARGV[0])
-    nightwriter.cut(File.read(ARGV[0]))
-    nightwriter.translate
-    nightwriter.write(ARGV[1])
 
     assert_equal "Created 'translated2.txt' containing 11 characters",
      nightwriter.confirm(ARGV[0])
@@ -94,7 +90,7 @@ class NightWriterTest < MiniTest::Test
     nightwriter.translate
     nightwriter.write(ARGV[1])
 
-    assert_equal "Created 'translated3.txt' containing 174   characters",
+    assert_equal "Created 'translated3.txt' containing 174 characters",
      nightwriter.confirm(ARGV[0])
    end
 
