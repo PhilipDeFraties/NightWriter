@@ -8,6 +8,7 @@ class NightReaderTest < MiniTest::Test
     nightreader = NightReader.new("single_braille.txt")
 
     assert_instance_of NightReader, nightreader
+    assert_equal "0.\n..\n..\n", nightreader.braille_text
   end
 
 
@@ -19,6 +20,7 @@ class NightReaderTest < MiniTest::Test
     assert_equal Hash, nightreader.translator.alphabet.rev_lowercase.class
   end
 
+
   def test_it_can_confirm
     nightreader = NightReader.new("braille1.txt")
     ARGV[0] = 'braille1.txt'
@@ -28,10 +30,4 @@ class NightReaderTest < MiniTest::Test
      nightreader.confirm(ARGV[0], ARGV[1])
   end
 
-  def test_it_can_gather_braille_arrays
-    nightreader = NightReader.new("single_braille.txt")
-    ARGV[0] = "single_braille.txt"
-
-    assert_equal ["0.", "..", ".."], nightreader.gather_braille_arrays(ARGV[0])
-  end
 end

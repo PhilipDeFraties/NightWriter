@@ -37,4 +37,19 @@ class Translator
     @formatted_braille = "#{collumn1.join}\n#{collumn2.join}\n#{collumn3.join}\n"
   end
 
+  def translate_from_braille_arrays(arrays)
+    text = ""
+    arrays.each do |array|
+      @alphabet.rev_lowercase.each do |braille, letter|
+        if braille == array
+          text << letter
+        end
+      end
+    end
+    text
+  end
+
+
+
+
 end
