@@ -1,8 +1,8 @@
  require 'pry'
 
- array = ["0.0.", "..00", "00..", ".0.0", "00..", "..00"]
+ string = "0..000...000"
 
- p array.each_slice(3).to_a
+ p string.chars.each_slice(2).map(&:join)
 
 
 
