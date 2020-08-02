@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/night_writer.rb'
 require './lib/translator.rb'
-require './lib/file_reader.rb'
 require 'pry'
 
 class NightWriterTest < MiniTest::Test
@@ -13,10 +12,9 @@ class NightWriterTest < MiniTest::Test
     assert_instance_of NightWriter, nightwriter
   end
 
-  def test_it_has_reader_and_translator
+  def test_it_has_translator
     nightwriter = NightWriter.new
 
-    assert_instance_of FileReader, nightwriter.reader
     assert_instance_of Translator, nightwriter.translator
   end
 
@@ -70,7 +68,7 @@ class NightWriterTest < MiniTest::Test
     nightwriter.translate
     nightwriter.write('translated1.txt')
     assert_equal "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n",
-     nightwriter.reader.read('translated1.txt')
+     File.read('translated1.txt')
   end
 
   def test_it_can_confirm_translated_characters

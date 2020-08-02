@@ -1,15 +1,13 @@
 require 'pry'
 require './lib/translator.rb'
-require './lib/file_reader.rb'
+
 
 class NightWriter
-  attr_reader :reader,
-              :translator,
+  attr_reader :translator,
               :text,
               :output_strings
 
   def initialize
-    @reader = FileReader.new
     @translator = Translator.new
     @output_strings = []
     # load_input_text(ARGV[0])
@@ -19,7 +17,7 @@ class NightWriter
   end
 
   def load_input_text(file_input)
-    @text = @reader.read(file_input)
+    @text = File.read(file_input)
   end
 
   def cut(text)
