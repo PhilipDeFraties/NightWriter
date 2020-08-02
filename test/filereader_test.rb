@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/file_reader.rb'
+require './lib/filereader.rb'
 
 class FileReaderTest < MiniTest::Test
 
@@ -10,9 +10,4 @@ class FileReaderTest < MiniTest::Test
     assert_instance_of FileReader, filereader
   end
 
-  def test_it_can_read
-    filereader = FileReader.new
-    ARGV[0] = 'message.txt'
-    assert_equal "hello world\n", filereader.read(ARGV[0])
-  end
 end
