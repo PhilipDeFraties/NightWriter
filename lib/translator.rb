@@ -53,6 +53,9 @@ class Translator
     @lines_array = text.split("\n")
   end
 
+  def group_braille_by_lines
+    @lines_array.each_slice(3).to_a
+  end
 
 
 end

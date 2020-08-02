@@ -72,10 +72,14 @@ class TranslatorTest < MiniTest::Test
      translator.split_braille_lines(text3)
   end
 
-  # def test_it_can_group_lines
-  # translator = Translator.new
-  #
-  # array = ["0.0.", "..00", "00..", ".0.0", "00..", "..00"]
-  #
-  # assert_equal [["0.0.", "..00", "00.."], [".0.0", "00..", "..00"]], translator
+  def test_it_can_group_lines
+  translator = Translator.new
+
+  text3 = "0.0.\n..00\n00..\n.0.0\n00..\n..00\n"
+  translator.split_braille_lines(text3)
+
+
+  assert_equal [["0.0.", "..00", "00.."], [".0.0", "00..", "..00"]],
+   translator.group_braille_by_lines
+ end
 end
