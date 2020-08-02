@@ -16,7 +16,7 @@ class NightReaderTest < MiniTest::Test
 
     assert_instance_of Translator, nightreader.translator
     assert_equal Alphabet, nightreader.translator.alphabet.class
-    assert_equal Hash, nightreader.translator.alphabet.lowercase.class
+    assert_equal Hash, nightreader.translator.alphabet.rev_lowercase.class
   end
 
   def test_it_load_input_text
@@ -36,5 +36,4 @@ class NightReaderTest < MiniTest::Test
     assert_equal "Created 'message.txt' containing 11 characters",
      nightreader.confirm(ARGV[0], ARGV[1])
   end
-
 end
