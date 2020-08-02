@@ -50,4 +50,5 @@ class TranslatorTest < MiniTest::Test
 
     assert_equal "0.0.00\n..0...\n......\n", translator.formatted_braille
   end
+
 end
