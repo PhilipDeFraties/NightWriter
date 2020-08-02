@@ -58,10 +58,9 @@ class Translator
   end
 
   def split_braille_chars
-    @chars_arrays = []
-    @lines_arrays.each do |array|
-      array.each do |string|
-        @chars_arrays << string.chars.each_slice(2).map(&:join)
+    @chars_arrays = @lines_arrays.map do |array|
+      array.map do |string|
+        string.chars.each_slice(2).map(&:join)
       end
     end
     @chars_arrays
@@ -70,4 +69,4 @@ class Translator
 
 
 
-    end
+  end

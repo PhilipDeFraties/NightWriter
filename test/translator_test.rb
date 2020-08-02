@@ -94,18 +94,16 @@ class TranslatorTest < MiniTest::Test
   def test_it_can_break_up_strings_by_two
    translator = Translator.new
 
-   text4 = "abcdef\nabcdef\nabcdef\nabcdef\nabcdef\nabcdef\n"
+   text4 = "abcdefgh\niklmnopq\nrstuvwxy\nz1234567\n89ABCDEF\n"
 
    translator.split_braille_lines(text4)
    translator.group_braille_by_lines
-   assert_equal [["ab", "cd", "ef"],
-    ["ab", "cd", "ef"],
-     ["ab", "cd", "ef"],
-      ["ab", "cd", "ef"],
-       ["ab", "cd", "ef"],
-        ["ab", "cd", "ef"]], translator.split_braille_chars
+   assert_equal [[["ab", "cd", "ef", "gh"],
+    ["ik", "lm", "no", "pq"],
+     ["rs", "tu", "vw", "xy"]],
+      [["z1", "23", "45", "67"],
+       ["89", "AB", "CD", "EF"]]], translator.split_braille_chars
   end
-
 
 
 end
