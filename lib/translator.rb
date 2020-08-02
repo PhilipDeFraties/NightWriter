@@ -49,7 +49,9 @@ class Translator
     text
   end
 
-
+  def split_braille_lines(text)
+    text.split("\n")
+  end
 
 
 end

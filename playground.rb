@@ -1,4 +1,14 @@
-# require 'pry'
+ require 'pry'
+
+ array = ["0.0.", "..00", "00..", ".0.0", "00..", "..00"]
+
+ p array.each_slice(3).to_a
+
+
+
+
+
+
 # text = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text "
 # text2 = "text text"
 # text3 = "text text text text text text text text text text text text text text text text text text text text text text text text text"
@@ -35,8 +45,8 @@
 # p ((text4.length + 80 -1) / 80).times.collect { |i| text4[i * 80, 80] }
 # binding.pry
 
-text =
-"0.0.0.0.0....00.0.0.00
-00.00.0..0..00.0000..0
-....0.0.0....00.0.0..."
-p text.length
+# text =
+# "0.0.0.0.0....00.0.0.00
+# 00.00.0..0..00.0000..0
+# ....0.0.0....00.0.0..."
+# p text.length

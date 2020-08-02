@@ -59,4 +59,23 @@ class TranslatorTest < MiniTest::Test
     assert_equal "a", translator.translate_from_braille_arrays(arrays)
   end
 
+  def test_it_can_split_lines
+    translator = Translator.new
+
+    text = "0.\n..\n..\n"
+    text2 = "0.0.\n..00\n00..\n"
+    text3 = "0.0.\n..00\n00..\n.0.0\n00..\n..00\n"
+
+    assert_equal ["0.", "..", ".."], translator.split_braille_lines(text)
+    assert_equal ["0.0.", "..00", "00.."], translator.split_braille_lines(text2)
+    assert_equal ["0.0.", "..00", "00..", ".0.0", "00..", "..00"],
+     translator.split_braille_lines(text3)
+  end
+
+  # def test_it_can_group_lines
+  # translator = Translator.new
+  #
+  # array = ["0.0.", "..00", "00..", ".0.0", "00..", "..00"]
+  #
+  # assert_equal [["0.0.", "..00", "00.."], [".0.0", "00..", "..00"]],
 end
