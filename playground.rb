@@ -35,5 +35,8 @@
 # p ((text4.length + 80 -1) / 80).times.collect { |i| text4[i * 80, 80] }
 # binding.pry
 
-text = "close your eyes and see when there aint no light all youll ever be come and save the night cause I don't leave when the morning comes it doesnt seem to say an awful lot to me"
+text =
+"0.0.0.0.0....00.0.0.00
+00.00.0..0..00.0000..0
+....0.0.0....00.0.0..."
 p text.length

@@ -4,7 +4,4 @@ module FileReader
     @text = File.read(file_input)
   end
 
-
-
-
 end

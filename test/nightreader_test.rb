@@ -27,5 +27,14 @@ class NightReaderTest < MiniTest::Test
     assert_equal "hello world\n", nightreader.text
   end
 
-  
+
+  def test_it_can_confirm
+    nightreader = NightReader.new
+    ARGV[0] = 'braille1.txt'
+    ARGV[1] = 'message.txt'
+
+    assert_equal "Created 'message.txt' containing 11 characters",
+     nightreader.confirm(ARGV[0], ARGV[1])
+  end
+
 end
