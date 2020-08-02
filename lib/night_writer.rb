@@ -1,7 +1,6 @@
 require 'pry'
 require './lib/translator.rb'
 
-
 class NightWriter
   attr_reader :translator,
               :text,
@@ -10,10 +9,6 @@ class NightWriter
   def initialize
     @translator = Translator.new
     @output_strings = []
-    # load_input_text(ARGV[0])
-    # cut(@text)
-    # translate
-    # write(ARGV[1])
   end
 
   def load_input_text(file_input)
@@ -45,5 +40,3 @@ class NightWriter
     p "Created '#{ARGV[1]}' containing #{new_file_count} characters"
   end
 end
-
-# nightwriter = NightWriter.new
