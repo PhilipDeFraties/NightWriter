@@ -1,6 +1,6 @@
 require 'pry'
 require './lib/translator.rb'
-require './lib/filereader.rb'
+require './lib/iomanager.rb'
 
 class NightReader
   attr_reader :translator,
@@ -9,7 +9,7 @@ class NightReader
               :output,
               :file_input,
               :file_output
-  include FileReader
+  include IoManager
 
   def initialize(file_input, file_output)
     @file_input = file_input

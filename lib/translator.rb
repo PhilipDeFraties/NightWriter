@@ -21,10 +21,6 @@ class Translator
     @braille_arrays
   end
 
-  # def translate_to_braille_arrays(text)
-  #  @braille_arrays = text.each_char.reduce([]) { |acc, char| acc << @alphabet.lowercase[char] }
-  # end
-
   def format_to_braille
     collumn1 = []
     collumn2 = []
@@ -71,6 +67,4 @@ class Translator
   def combine_braille_chars
     @chars_arrays.map(&:transpose)
   end
-
-
-  end
+end
