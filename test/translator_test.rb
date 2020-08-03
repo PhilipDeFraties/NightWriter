@@ -50,4 +50,60 @@ class TranslatorTest < MiniTest::Test
 
     assert_equal "0.0.00\n..0...\n......\n", translator.formatted_braille
   end
+
+  def test_it_can_translate_arrays
+    translator = Translator.new
+
+    arrays = [["0.", "..", ".."]]
+
+    assert_equal "a", translator.translate_from_braille_arrays(arrays)
+  end
+
+  def test_it_can_split_lines
+    translator = Translator.new
+
+    text = "0.\n..\n..\n"
+    text2 = "0.0.\n..00\n00..\n"
+    text3 = "0.0.\n..00\n00..\n.0.0\n00..\n..00\n"
+
+    assert_equal ["0.", "..", ".."], translator.split_braille_lines(text)
+    assert_equal ["0.0.", "..00", "00.."], translator.split_braille_lines(text2)
+    assert_equal ["0.0.", "..00", "00..", ".0.0", "00..", "..00"],
+     translator.split_braille_lines(text3)
+  end
+
+  def test_it_can_group_lines
+    translator = Translator.new
+
+    text3 = "0.0.\n..00\n00..\n.0.0\n00..\n..00\n"
+    translator.split_braille_lines(text3)
+    assert_equal [["0.0.", "..00", "00.."], [".0.0", "00..", "..00"]],
+
+    translator.group_braille_by_lines
+    text4 = "0.0.\n..00\n00..\n.0.0\n00..\n..00\n0.0.\n..00\n00..\n"
+    translator.split_braille_lines(text4)
+    assert_equal [["0.0.", "..00", "00.."], [".0.0", "00..", "..00"], ["0.0.", "..00", "00.."]],
+    translator.group_braille_by_lines
+
+    text5 = "abcdef\nghiklm\nnopqrs\ntuvwxy\nz12345\n6789AB\n"
+    translator.split_braille_lines(text5)
+    assert_equal [["abcdef", "ghiklm", "nopqrs"], ["tuvwxy", "z12345", "6789AB"]],
+     translator.group_braille_by_lines
+  end
+
+  def test_it_can_break_up_strings_by_two
+   translator = Translator.new
+
+   text4 = "abcdefgh\niklmnopq\nrstuvwxy\nz1234567\n89ABCDEF\n"
+
+   translator.split_braille_lines(text4)
+   translator.group_braille_by_lines
+   assert_equal [[["ab", "cd", "ef", "gh"],
+    ["ik", "lm", "no", "pq"],
+     ["rs", "tu", "vw", "xy"]],
+      [["z1", "23", "45", "67"],
+       ["89", "AB", "CD", "EF"]]], translator.split_braille_chars
+  end
+
+
 end
