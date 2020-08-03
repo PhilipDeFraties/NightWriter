@@ -54,7 +54,7 @@ class TranslatorTest < MiniTest::Test
   def test_it_can_translate_arrays
     translator = Translator.new
 
-    arrays = [["0.", "..", ".."]]
+    arrays = [[["0.", "..", ".."]]]
 
     assert_equal "a", translator.translate_from_braille_arrays(arrays)
   end
@@ -123,7 +123,6 @@ class TranslatorTest < MiniTest::Test
          ["23", "AB", "IJ"],
           ["45", "CD", "KL"],
            ["67", "EF", "MN"]]], translator.combine_braille_chars
-         end
-
+    end
 
 end
