@@ -17,4 +17,12 @@ class NightReader
     new_file_count = (File.open(file_input).sum { |line| line.chomp.length }) / 6
     p "Created '#{file_output}' containing #{new_file_count} characters"
   end
+
+  def translate
+    translator.split_braille_lines(@braille_text)
+    translator.group_braille_by_lines
+    translator.split_braille_chars
+    @braille_arrays = translator.combine_braille_chars
+    translator.translate_from_braille_arrays(@braille_arrays)
+  end
 end

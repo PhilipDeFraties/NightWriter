@@ -30,4 +30,10 @@ class NightReaderTest < MiniTest::Test
      nightreader.confirm(ARGV[0], ARGV[1])
   end
 
+  def test_it_can_translate
+    nightreader = NightReader.new("encoded.txt")
+
+    assert_equal "close your eyes and see when there aint no light all youll ever be come and save the night cause i dont leave when the morning comes it doesnt seem to say an awful lot to me", nightreader.translate
+  end
+
 end
