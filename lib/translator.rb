@@ -37,12 +37,14 @@ class Translator
     @formatted_braille = "#{collumn1.join}\n#{collumn2.join}\n#{collumn3.join}\n"
   end
 
-  def translate_from_braille_arrays(arrays)
+  def translate_from_braille_arrays(braille_arrays)
     text = ""
-    arrays.each do |array|
-      @alphabet.rev_lowercase.each do |braille, letter|
-        if braille == array
-          text << letter
+    braille_arrays.each do |arrays|
+      arrays.each do |array|
+        @alphabet.rev_lowercase.each do |braille, letter|
+          if braille == array
+            text << letter
+          end
         end
       end
     end
@@ -66,7 +68,9 @@ class Translator
     @chars_arrays
   end
 
-
+  def combine_braille_chars
+    @chars_arrays.map(&:transpose)
+  end
 
 
   end

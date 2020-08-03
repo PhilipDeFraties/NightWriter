@@ -94,7 +94,7 @@ class TranslatorTest < MiniTest::Test
   def test_it_can_break_up_strings_by_two
    translator = Translator.new
 
-   text4 = "abcdefgh\niklmnopq\nrstuvwxy\nz1234567\n89ABCDEF\n"
+   text4 = "abcdefgh\niklmnopq\nrstuvwxy\nz1234567\n89ABCDEF\nGHIJKLMN\n"
 
    translator.split_braille_lines(text4)
    translator.group_braille_by_lines
@@ -102,8 +102,28 @@ class TranslatorTest < MiniTest::Test
     ["ik", "lm", "no", "pq"],
      ["rs", "tu", "vw", "xy"]],
       [["z1", "23", "45", "67"],
-       ["89", "AB", "CD", "EF"]]], translator.split_braille_chars
+       ["89", "AB", "CD", "EF"],
+       ["GH", "IJ", "KL", "MN"]]], translator.split_braille_chars
   end
+
+  def test_it_can_combine_strings_by_position
+    translator = Translator.new
+
+    text4 = "abcdefgh\niklmnopq\nrstuvwxy\nz1234567\n89ABCDEF\nGHIJKLMN\n"
+
+    translator.split_braille_lines(text4)
+    translator.group_braille_by_lines
+    translator.split_braille_chars
+
+    assert_equal [[["ab", "ik", "rs"],
+     ["cd", "lm", "tu"],
+      ["ef", "no", "vw"],
+       ["gh", "pq", "xy"]],
+        [["z1", "89", "GH"],
+         ["23", "AB", "IJ"],
+          ["45", "CD", "KL"],
+           ["67", "EF", "MN"]]], translator.combine_braille_chars
+         end
 
 
 end
