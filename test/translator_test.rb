@@ -11,16 +11,20 @@ class TranslatorTest < MiniTest::Test
     assert_instance_of Translator, translator
   end
 
-  def test_it_has_alphabet
+  def test_it_has_alphabets
     translator = Translator.new
 
-    assert_instance_of Alphabet, translator.alphabet
-    assert_equal Hash, translator.alphabet.lowercase.class
-    assert_equal ["0.", "..", ".."], translator.alphabet.lowercase["a"]
-    assert_equal ["00", "..", "0."],translator.alphabet.lowercase["m"]
-    assert_equal [".0", "0.", "0."],translator.alphabet.lowercase["s"]
-    assert_equal [".0", "00", ".0"],translator.alphabet.lowercase["w"]
-    assert_equal ["..", "..", ".."],translator.alphabet.lowercase[" "]
+    assert_equal ["0.", "..", ".."], translator.lowercase["a"]
+    assert_equal ["00", "..", "0."],translator.lowercase["m"]
+    assert_equal [".0", "0.", "0."],translator.lowercase["s"]
+    assert_equal [".0", "00", ".0"],translator.lowercase["w"]
+    assert_equal ["..", "..", ".."],translator.lowercase[" "]
+
+    assert_equal "a", translator.rev_lowercase[["0.", "..", ".."]]
+    assert_equal "j", translator.rev_lowercase[[".0", "00", ".."]]
+    assert_equal "r", translator.rev_lowercase[["0.", "00", "0."]]
+    assert_equal "x", translator.rev_lowercase[["00", "..", "00"]]
+    assert_equal " ", translator.rev_lowercase[["..", "..", ".."]]
   end
 
   def test_it_has_no_output_text_by_default
