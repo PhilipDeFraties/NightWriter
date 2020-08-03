@@ -26,5 +26,6 @@ include FileReader
     @text_array.each do |string|
       @translator.translate_to_braille_arrays(string)
       @output << @translator.format_to_braille
+    end
   end
 end

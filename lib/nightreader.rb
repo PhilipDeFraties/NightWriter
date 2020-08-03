@@ -23,7 +23,7 @@ class NightReader
     translator.group_braille_by_lines
     translator.split_braille_chars
     @braille_arrays = translator.combine_braille_chars
-    translator.translate_from_braille_arrays(@braille_arrays)
+    @output = translator.translate_from_braille_arrays(@braille_arrays)
   end
 
 

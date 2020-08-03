@@ -86,8 +86,6 @@ class NightWriterTest < MiniTest::Test
 
   def test_it_can_write_translated_braille_to_new_file
     nightwriter = NightWriter.new('lyrics.txt', 'translated3.txt')
-    ARGV[0] = 'lyrics.txt'
-    ARGV[1] = 'translated3.txt'
 
     nightwriter.cut
     nightwriter.translate
