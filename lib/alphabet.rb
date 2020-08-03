@@ -1,7 +1,6 @@
-class Alphabet
-  attr_reader :lowercase,
-              :rev_lowercase
-def initialize
+module Alphabet
+
+def alphabets
     @lowercase = {
         "a" => ["0.", "..", ".."],
         "b" => ["0.", "0.", ".."],
@@ -62,4 +61,4 @@ def initialize
        ["..", "..", ".."] => " "
      }
    end
-end
+ end

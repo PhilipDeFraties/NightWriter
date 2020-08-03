@@ -1,21 +1,22 @@
 require 'pry'
 require './lib/translator.rb'
-require './lib/filereader.rb'
+require './lib/iomanager.rb'
 
 class NightReader
   attr_reader :translator,
               :text,
-              :braille_text
-  include FileReader
+              :braille_text,
+              :output,
+              :file_input,
+              :file_output
+  include IoManager
 
-  def initialize(input_file)
+  def initialize(file_input, file_output)
+    @file_input = file_input
+    @file_output = file_output
     @translator = Translator.new
-    @braille_text = load_input_text(input_file)
-  end
-
-  def confirm(file_input, file_output)
-    new_file_count = (File.open(file_input).sum { |line| line.chomp.length }) / 6
-    p "Created '#{file_output}' containing #{new_file_count} characters"
+    @braille_text = load_input_text(file_input)
+    @output = []
   end
 
   def translate
@@ -23,6 +24,8 @@ class NightReader
     translator.group_braille_by_lines
     translator.split_braille_chars
     @braille_arrays = translator.combine_braille_chars
-    translator.translate_from_braille_arrays(@braille_arrays)
+    @output << translator.translate_from_braille_arrays(@braille_arrays)
   end
+
+
 end

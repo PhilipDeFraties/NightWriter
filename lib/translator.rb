@@ -1,18 +1,20 @@
 require 'pry'
 require './lib/alphabet.rb'
 class Translator
-  attr_reader :alphabet,
+  attr_reader :lowercase,
               :input_text,
-              :formatted_braille
+              :formatted_braille,
+              :rev_lowercase
+  include Alphabet
   def initialize
-    @alphabet = Alphabet.new
     @formatted_braille = ""
+    alphabets
   end
 
   def translate_to_braille_arrays(text)
     @braille_arrays = []
     text.each_char do |character|
-      @alphabet.lowercase.each do |letter, braille|
+      @lowercase.each do |letter, braille|
         if letter == character
           @braille_arrays << braille
         end
@@ -20,10 +22,6 @@ class Translator
     end
     @braille_arrays
   end
-
-  # def translate_to_braille_arrays(text)
-  #  @braille_arrays = text.each_char.reduce([]) { |acc, char| acc << @alphabet.lowercase[char] }
-  # end
 
   def format_to_braille
     collumn1 = []
@@ -41,7 +39,7 @@ class Translator
     text = ""
     braille_arrays.each do |arrays|
       arrays.each do |array|
-        @alphabet.rev_lowercase.each do |braille, letter|
+        @rev_lowercase.each do |braille, letter|
           if braille == array
             text << letter
           end
@@ -71,6 +69,4 @@ class Translator
   def combine_braille_chars
     @chars_arrays.map(&:transpose)
   end
-
-
-  end
+end
