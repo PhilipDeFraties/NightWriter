@@ -4,41 +4,59 @@ require './lib/nightreader.rb'
 
 class NightReaderTest < MiniTest::Test
 
-  def test_it_exists_and_has_input_braille
-    nightreader = NightReader.new("single_braille.txt")
+  def test_it_has_input_braille
+    nightreader = NightReader.new('single_braille.txt',  'readerout.txt')
 
-    assert_instance_of NightReader, nightreader
-    assert_equal "0.\n..\n..\n", nightreader.braille_text
+    assert_equal "0.\n..\n..", nightreader.braille_text
   end
 
+  def test_it_has_input_output_files
+    nightreader = NightReader.new('single_braille.txt',  'readerout.txt')
+
+    assert_equal "single_braille.txt", nightreader.file_input
+    assert_equal 'readerout.txt', nightreader.file_output
+  end
 
   def test_it_has_access_to_translator_and_alphabet
-    nightreader = NightReader.new("single_braille.txt")
+    nightreader = NightReader.new("single_braille.txt",  'readerout.txt')
 
     assert_instance_of Translator, nightreader.translator
     assert_equal Alphabet, nightreader.translator.alphabet.class
     assert_equal Hash, nightreader.translator.alphabet.rev_lowercase.class
   end
 
+  def test_it_has_no_output_by_default
+    nightreader = NightReader.new("single_braille.txt", 'readerout.txt')
+
+    assert_equal [], nightreader.output
+  end
 
   def test_it_can_confirm
-    nightreader = NightReader.new("braille1.txt")
-    ARGV[0] = 'braille1.txt'
-    ARGV[1] = 'message.txt'
+    nightreader = NightReader.new("braille1.txt",  'readerout.txt')
 
-    assert_equal "Created 'message.txt' containing 11 characters",
-     nightreader.confirm(ARGV[0], ARGV[1])
+
+    assert_equal "Created 'readerout.txt' containing 66 characters",
+     nightreader.confirm
   end
 
   def test_it_can_translate
-    nightreader = NightReader.new("encoded.txt")
+    nightreader = NightReader.new("encoded.txt",  'readerout.txt')
 
-    assert_equal "close your eyes and see when there aint no light all youll ever be come and save the night cause i dont leave when the morning comes it doesnt seem to say an awful lot to me",
+    assert_equal ["close your eyes and see when there aint no light all youll ever be come and save the night cause i dont leave when the morning comes it doesnt seem to say an awful lot to me"],
      nightreader.translate
 
-    nightreader = NightReader.new("single_braille.txt")
-    
-    assert_equal "a", nightreader.translate
+    nightreader = NightReader.new("single_braille.txt", 'readerout.txt')
+
+    assert_equal ["a"], nightreader.translate
   end
 
+  def test_it_can_translate_and_write_to_output_file
+    nightreader = NightReader.new("encoded.txt",  'readerout.txt')
+
+    nightreader.translate
+    nightreader.write
+
+    assert_equal "close your eyes and see when there aint no light all youll ever be come and save the night cause i dont leave when the morning comes it doesnt seem to say an awful lot to me",
+     File.read('readerout.txt')
+   end
 end

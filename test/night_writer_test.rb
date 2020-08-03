@@ -85,13 +85,13 @@ class NightWriterTest < MiniTest::Test
   end
 
   def test_it_can_write_translated_braille_to_new_file
-    nightwriter = NightWriter.new('lyrics.txt', 'translated3.txt')
+    nightwriter = NightWriter.new('lyrics.txt', 'writerout.txt')
 
     nightwriter.cut
     nightwriter.translate
     nightwriter.write
 
-    assert_equal "Created 'translated3.txt' containing 173 characters",
+    assert_equal "Created 'writerout.txt' containing 173 characters",
      nightwriter.confirm
    end
 
