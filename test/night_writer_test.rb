@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper.rb'
 require './lib/night_writer.rb'
 require './lib/translator.rb'
 require 'pry'
@@ -16,13 +15,6 @@ class NightWriterTest < MiniTest::Test
     nightwriter = NightWriter.new('message.txt', 'message2.txt')
 
     assert_instance_of Translator, nightwriter.translator
-  end
-
-  def test_it_has_access_to_alphabet
-    nightwriter = NightWriter.new('message.txt', 'message2.txt')
-
-    assert_equal Alphabet, nightwriter.translator.alphabet.class
-    assert_equal Hash, nightwriter.translator.alphabet.lowercase.class
   end
 
   def test_it_has_input_and_output_files
