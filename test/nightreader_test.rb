@@ -37,9 +37,8 @@ class NightReaderTest < MiniTest::Test
      nightreader.translate
 
     nightreader = NightReader.new("single_braille.txt")
+    
     assert_equal "a", nightreader.translate
   end
-
-
 
 end
