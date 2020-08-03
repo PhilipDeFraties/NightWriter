@@ -26,5 +26,5 @@ class NightReader
     translator.translate_from_braille_arrays(@braille_arrays)
   end
 
-  
+
 end
