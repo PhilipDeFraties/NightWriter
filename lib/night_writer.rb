@@ -19,7 +19,7 @@ include IoManager
   end
 
   def cut
-    @text_array = ((@text.chomp.length + 40 -1) / 40).times.collect { |i| @text.chomp[i * 40, 40] }
+    @text_array = ((@text.chomp.length + 39) / 40).times.collect { |i| @text.chomp[i * 40, 40] }
   end
 
   def translate

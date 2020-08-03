@@ -32,9 +32,7 @@ class NightReaderTest < MiniTest::Test
   def test_it_can_confirm
     nightreader = NightReader.new("braille1.txt",  'readerout.txt')
 
-
-    assert_equal "Created 'readerout.txt' containing 66 characters",
-     nightreader.confirm
+    assert_equal 66, nightreader.confirm
   end
 
   def test_it_can_translate
@@ -56,5 +54,7 @@ class NightReaderTest < MiniTest::Test
 
     assert_equal "close your eyes and see when there aint no light all youll ever be come and save the night cause i dont leave when the morning comes it doesnt seem to say an awful lot to me",
      File.read('readerout.txt')
+
+     nightreader.delete_output
    end
 end

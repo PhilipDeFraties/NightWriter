@@ -12,16 +12,9 @@ class Translator
   end
 
   def translate_to_braille_arrays(text)
-    @braille_arrays = []
-    text.each_char do |character|
-      @lowercase.each do |letter, braille|
-        if letter == character
-          @braille_arrays << braille
-        end
-      end
-    end
-    @braille_arrays
+    @braille_arrays = text.each_char.reduce([]) { |acc, char| acc << @lowercase[char] }
   end
+
 
   def format_to_braille
     collumn1 = []
@@ -38,13 +31,7 @@ class Translator
   def translate_from_braille_arrays(braille_arrays)
     text = ""
     braille_arrays.each do |arrays|
-      arrays.each do |array|
-        @rev_lowercase.each do |braille, letter|
-          if braille == array
-            text << letter
-          end
-        end
-      end
+      arrays.reduce(text) { |acc, array| acc << @rev_lowercase[array] }
     end
     text
   end
@@ -54,7 +41,7 @@ class Translator
   end
 
   def group_braille_by_lines
-  @lines_arrays = @lines_array.each_slice(3).to_a
+    @lines_arrays = @lines_array.each_slice(3).to_a
   end
 
   def split_braille_chars

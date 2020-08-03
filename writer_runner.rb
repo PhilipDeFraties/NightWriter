@@ -8,3 +8,5 @@ nightwriter.cut
 nightwriter.translate
 nightwriter.write
 nightwriter.confirm
+
+p "Created '#{output}' containing #{nightwriter.confirm} characters"
