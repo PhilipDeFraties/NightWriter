@@ -1,12 +1,28 @@
- require 'pry'
+ # require 'pry'
+ #
+ # string = "0..000...000"
+ #
+ # p string.chars.each_slice(2).map(&:join)
 
- string = "0..000...000"
+arrays = [[["ab", "cd", "ef", "gh"],
+ ["ik", "lm", "no", "pq"],
+  ["rs", "tu", "vw", "xy"]],
+   [["z1", "23", "45", "67"],
+    ["89", "AB", "CD", "EF"],
+    ["GH", "IJ", "KL", "MN"]]]
 
- p string.chars.each_slice(2).map(&:join)
+goal = [[["ab", "ik", "rs"], ["cd", "lm", "tu"], ["ef", "no", "vw"], ["gh", "pq", "xy"]],
+[["z1", "89", "GH"], ["23", "AB", "IJ"], ["45", "CD", "KL"], ["67", "EF", "MN"]]]
 
+result = arrays.map(&:transpose)
 
+  # arrays.map do |array|
+  #     array.map do |array|
+  #     result  << Array.new(3){ |index| index ** 2 }
+  #     end
+  #   end
 
-
+p result
 
 
 # text = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text "

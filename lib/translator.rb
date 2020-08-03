@@ -66,7 +66,9 @@ class Translator
     @chars_arrays
   end
 
-
+  def combine_braille_chars
+    @chars_arrays.map(&:transpose)
+  end
 
 
   end
