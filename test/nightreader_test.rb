@@ -56,5 +56,5 @@ class NightReaderTest < MiniTest::Test
      File.read('readerout.txt')
 
      nightreader.delete_output
-   end
+  end
 end

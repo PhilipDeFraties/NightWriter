@@ -60,5 +60,5 @@ module Alphabet
          ["0.", ".0", "00"] => "z",
          ["..", "..", ".."] => " "
        }.freeze
-    end
- end
+  end
+end

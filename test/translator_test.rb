@@ -130,6 +130,6 @@ class TranslatorTest < MiniTest::Test
          ["23", "AB", "IJ"],
           ["45", "CD", "KL"],
            ["67", "EF", "MN"]]], translator.combine_braille_chars
-    end
+  end
 
 end
