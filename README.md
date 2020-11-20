@@ -9,6 +9,7 @@ For example, we are going to represent a h character as follows:
 0.
 00
 ..
+
 `
 
 with a zero in the first position of the first row representing a raised dot, and two zeros in the second row representing two raised dots, and periods in the remaining spaces representing unraised spaces.
