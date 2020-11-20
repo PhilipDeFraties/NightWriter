@@ -20,7 +20,7 @@ Following the same pattern, 'hello world' would be represented as follows:
 00.00.0..0..00.0000..0
 ....0.0.0....00.0.0...
 ```
-
+For more details about project specs visit the project page by clicking the above hyperlink.
 ## Instructions
 
 ### English alphabet to Braille:
