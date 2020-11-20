@@ -6,11 +6,9 @@ Program for translating alphabetical characters into Braille and vice versa. Wri
 For example, we are going to represent a h character as follows:
 
 `
-
 0.
 00
 ..
-
 `
 
 with a zero in the first position of the first row representing a raised dot, and two zeros in the second row representing two raised dots, and periods in the remaining spaces representing unraised spaces.
@@ -18,11 +16,9 @@ with a zero in the first position of the first row representing a raised dot, an
 Following the same pattern, hello world would be represented as follows:
 
 `
-
 0.0.0.0.0....00.0.0.00
 00.00.0..0..00.0000..0
 ....0.0.0....00.0.0...
-
 `
 
 ## Instructions
