@@ -1,7 +1,7 @@
 # [Nightwriter](https://backend.turing.io/module1/projects/night_writer/)
 
 ## Turing Mod 1 Independent Project
-Program for translating alphabetical characters into Braille and vice versa. For more details about project requirements please click the above hyperlink.
+Program for translating alphabetical characters into Braille and vice versa. Writer and reader runner files are used to perform the translations, when running these files 2 additional files are given from the command line, the first contains text to be translated and a new file in which the translation will be written.
 
 ## Instructions
 
@@ -20,3 +20,6 @@ Run the reader runner file with provided text(braille) file as input and empty f
 `$ ruby ./reader_runner.rb braille.txt original_message.txt`
 
 You will see a confirmation message in your terminal indicating that 'original_message.txt' file was created which holds an english translation of the braille from 'baille.txt'. The contents of 'fixtures/lyrics.txt' and 'original_message.txt' are identical.
+
+## Development
+
