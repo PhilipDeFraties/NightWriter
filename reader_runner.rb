@@ -1,4 +1,4 @@
-require './lib/nightreader.rb'
+require './lib/night_reader.rb'
 
 input = ARGV[0]
 output = ARGV[1]
