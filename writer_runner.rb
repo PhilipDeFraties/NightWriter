@@ -9,4 +9,4 @@ nightwriter.translate
 nightwriter.write
 nightwriter.confirm
 
-p "Created '#{output}' containing #{nightwriter.confirm} characters"
+p "Created '#{output}' containing #{nightwriter.confirm} translated english characters"

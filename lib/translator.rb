@@ -1,5 +1,6 @@
 require 'pry'
 require './lib/alphabet.rb'
+
 class Translator
   attr_reader :lowercase,
               :input_text,

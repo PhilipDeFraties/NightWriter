@@ -1,5 +1,5 @@
 require './test/test_helper.rb'
-require './lib/nightreader.rb'
+require './lib/night_reader.rb'
 
 class NightReaderTest < MiniTest::Test
 

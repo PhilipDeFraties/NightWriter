@@ -86,5 +86,4 @@ class NightWriterTest < MiniTest::Test
 
     nightwriter.delete_output
   end
-
 end

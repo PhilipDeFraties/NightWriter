@@ -26,6 +26,4 @@ class NightReader
     @braille_arrays = translator.combine_braille_chars
     @output << translator.translate_from_braille_arrays(@braille_arrays)
   end
-
-
 end

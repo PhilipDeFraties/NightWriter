@@ -8,3 +8,5 @@ nightreader = NightReader.new(input, output)
 nightreader.translate
 nightreader.write
 nightreader.confirm
+
+p "Created '#{output}' containing #{nightreader.confirm} translated braille characters"

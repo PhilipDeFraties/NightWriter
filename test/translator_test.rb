@@ -1,8 +1,6 @@
 require './test/test_helper.rb'
 require './lib/translator.rb'
 
-
-
 class TranslatorTest < MiniTest::Test
 
   def test_it_exists
@@ -131,5 +129,4 @@ class TranslatorTest < MiniTest::Test
           ["45", "CD", "KL"],
            ["67", "EF", "MN"]]], translator.combine_braille_chars
   end
-
 end
