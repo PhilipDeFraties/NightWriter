@@ -1,5 +1,4 @@
 module Alphabet
-
   def alphabets
       @lowercase ||= {
           "a" => ["0.", "..", ".."],
