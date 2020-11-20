@@ -1,7 +1,7 @@
 # [Nightwriter](https://backend.turing.io/module1/projects/night_writer/)
 
 ## Turing Mod 1 Independent Project
-Program for translating alphabetical characters into Braille and vice versa. Writer and reader runner files are used to perform the translations, when running these files 2 additional files are given from the command line, the first contains text to be translated and a new file in which the translation will be written. Braille uses a two-by-three grid of dots to represent characters. This concept is simulated by using three lines of symbols.
+This is a Ruby program for translating alphabetical characters into Braille and vice versa. Writer and reader runner files are used to perform the translations, when running these files 2 additional files are given from the command line, the first contains text to be translated and a new file in which the translation will be written. Braille uses a two-by-three grid of dots to represent characters. This concept is simulated by using three lines of symbols.
 
 For example, we are going to represent a 'h' character as follows:
 
