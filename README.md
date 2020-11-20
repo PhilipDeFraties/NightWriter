@@ -3,7 +3,7 @@
 ## Turing Mod 1 Independent Project
 Program for translating alphabetical characters into Braille and vice versa. Writer and reader runner files are used to perform the translations, when running these files 2 additional files are given from the command line, the first contains text to be translated and a new file in which the translation will be written. Braille uses a two-by-three grid of dots to represent characters. This concept is simulated by using three lines of symbols.
 
-For example, we are going to represent a h character as follows:
+For example, we are going to represent a 'h' character as follows:
 
 ```
 0.
@@ -13,7 +13,7 @@ For example, we are going to represent a h character as follows:
 
 with a zero in the first position of the first row representing a raised dot, and two zeros in the second row representing two raised dots, and periods in the remaining spaces representing unraised spaces.
 
-Following the same pattern, hello world would be represented as follows:
+Following the same pattern, 'hello world' would be represented as follows:
 
 ```
 0.0.0.0.0....00.0.0.00
