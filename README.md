@@ -4,9 +4,15 @@
 Program for translating alphabetical characters into Braille and vice versa. For more details about project requirements please click the above hyperlink.
 
 ## Instructions
-Latin alphabet to Braille:
-Input your desired message for translation into message.txt
-$ ruby ./writer_runner.rb lyrics.txt braille.txt
-Braille to Latin alphabet:
+
+### English alphabet to Braille:
+
+run the writer runner file with provided text file as input and empty file that will contain translated braille
+
+`$ ruby ./writer_runner.rb fixtures/lyrics.txt braille.txt`
+
+You will see a confirmation message in your terminal indicating that braille.txt file was created.
+
+### Braille to English alphabet:
 Input your desired message for translation into braille.txt
 $ ruby ./lib/night_reader.rb braille.txt original_message.txt
