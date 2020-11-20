@@ -11,8 +11,12 @@ run the writer runner file with provided text file as input and empty file that 
 
 `$ ruby ./writer_runner.rb fixtures/lyrics.txt braille.txt`
 
-You will see a confirmation message in your terminal indicating that braille.txt file was created.
+You will see a confirmation message in your terminal indicating that 'braille.txt' file was created which holds a braille-like translation of the original english text.
 
 ### Braille to English alphabet:
-Input your desired message for translation into braille.txt
-$ ruby ./lib/night_reader.rb braille.txt original_message.txt
+
+Run the reader runner file with provided text(braille) file as input and empty file that will contain the translated english
+
+`$ ruby ./reader_runner.rb braille.txt original_message.txt`
+
+You will see a confirmation message in your terminal indicating that 'original_message.txt' file was created which holds an english translation of the braille from 'baille.txt'. The contents of 'fixtures/lyrics.txt' and 'original_message.txt' are identical.
