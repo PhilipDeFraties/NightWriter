@@ -9,17 +9,38 @@ class NightWriter
               :file_input,
               :file_output
 include IoManager
-
   def initialize(file_input, file_output)
     @file_input = file_input
+    @text = load_input_text(file_input)
     @file_output = file_output
     @translator = Translator.new
-    load_input_text(file_input)
     @output = []
   end
 
   def cut
-    @text_array = ((@text.chomp.length + 39) / 40).times.collect { |i| @text.chomp[i * 40, 40] }
+    words = @text.split
+    words = break_up_long_words(words)
+
+    strings = [""]
+
+    words.each do |str|
+      unless strings[-1].length + str.length > 40
+        strings[-1] << "#{str} "
+      else
+        strings << "#{str} "
+      end
+    end
+    @text_array = strings.map(&:rstrip)
+  end
+
+  def break_up_long_words(words)
+    words.map do |word|
+      unless word.length > 40
+        word
+      else
+        word.scan(/.{1,40}/)
+      end
+    end.flatten
   end
 
   def translate
